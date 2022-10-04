@@ -1,10 +1,14 @@
-"use strict";
+// "use strict";
 
-var first = "Ja'ir";
+// var first = "Ja'ir";
 
-function showName() {
-  console.log(first);
-}
+// function showName() {
+//   console.log(first);
+// }
 
-console.log(global);
-showName();
+// console.log(global);
+// showName();
+
+
+console.log(first);
+let first = "Brian";
