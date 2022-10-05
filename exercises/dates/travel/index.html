@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Date</title>
+</head>
+
+<body>
+    <label for="travel-date">Travel Date:</label>
+    <input type="date" id="travel-date">
+    <input type="button" value="Submit" id="submit-btn" onclick="onSubmitOfButtonClicked();">
+    <br>
+    <p id="message"> </p>
+
+    <script>
+        function onSubmitOfButtonClicked() {
+            // get the input element
+            const inputElement = document.getElementById("travel-date");
+
+            // get the value (travel date)
+            let travelDate = new Date(inputElement.value + 'T00:00');
+            console.log(travelDate);
+
+            // now, todays date
+            let today = new Date();
+            console.log(today);
+
+            // calculate date difference
+            let milliSecondsPerDay = 1000 * 60 * 60 * 24;
+            let elapsedMilliSeconds = today.getTime() - travelDate.getTime();
+            let dayDifference = elapsedMilliSeconds / milliSecondsPerDay;
+            let numberOfDays = Math.abs(Math.round(dayDifference));
+
+
+            //display days left: 
+            //get paragraph element
+            const messageParagraphElement = document.getElementById("message");
+            //set paragraph to days left
+            messageParagraphElement.innerText = `Your trip is in ${numberOfDays} days`;
+
+        }
+
+    </script>
+</body>
+
+</html>
