@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Example</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Select the policy type:</legend>
+        <input type="radio" name="policy" id="auto" class="auto" value="auto" onclick="calculatePremium();">Auto<br>
+        <input type="radio" name="policy" id="home" value="home" onclick="calculatePremium();" checked> Home<br>
+        <input type="radio" name="policy" id="life" value="life" onclick="calculatePremium(); "> Life<br>
+    </fieldset>
+
+    <script>
+
+        function calculatePremium() {
+            let selectedOption = document.querySelector("input[name='policy']:checked");
+            let basePremium = 0;
+            if (selectedOption.value == "auto") {
+                basePremium = 175.00;
+            }
+            else if (selectedOption.value == "home") {
+                basePremium = 395.00;
+            }
+            else {
+                basePremium = 225.00;
+            }
+            console.log(basePremium);
+        }
+
+        function calculatePremium1() {
+            // let autoRadioBtn = document.getElementById("auto");
+            let autoRadioBtn = document.querySelector(".auto");
+
+            let homeRadioBtn = document.getElementById("home");
+            let basePremium = 0;
+            if (autoRadioBtn.checked) {
+                basePremium = 175.00;
+            }
+            else if (homeRadioBtn.checked) {
+                basePremium = 395.00;
+            }
+            else { // it must be life!
+                basePremium = 225.00;
+            }
+            console.log(basePremium);
+        }
+
+    </script>
+</body>
+
+</html>
