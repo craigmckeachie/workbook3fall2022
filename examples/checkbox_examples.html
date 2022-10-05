@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Examples</title>
+    <style>
+        legend {
+            background-color: #000;
+            color: #fff;
+            padding: 3px 6px;
+        }
+
+        input {
+            margin: .4rem;
+        }
+
+        #shippingDiv {
+            border: 1px solid #ccc;
+            padding: 1.2em;
+            margin: 1.2em;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <fieldset>
+            <legend>Rental Car Options:</legend>
+
+            <input type="checkbox" id="tollTag" name="tollTag" value="tolltag" checked> Electronic Toll Tag
+            ($3.95/day
+            plus tolls)<br>
+            <input type="checkbox" id="gps" name="gps" value="gls"> GPS ($4.95/day)<br>
+            <input type="checkbox" id="roadside" name="roadside" value="roadside"> Roadside Assistance
+            ($2.95/day)<br>
+            <input type="checkbox" id="govt" name="govt" value="govt" onclick="onGovtChkBoxClicked();"> Are you a US
+            Government employee?<br>
+            <input type="checkbox" id="sameAddress" name="sameAddress" value="same" checked="true"> Ship to the same
+            address?<br>
+            <div id="shippingDiv" style="display:none">
+                <label for="address-line-1">Address Line 1</label>
+                <input type="text" id="address-line-1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorem, hic eveniet molestias ex
+                    explicabo tempora officia voluptate aperiam quaerat, ratione soluta et dolorum fugiat! Similique
+                    ipsam suscipit commodi cupiditate.</p>
+            </div>
+        </fieldset>
+    </div>
+
+    <script>
+        // window.onload = function init() {
+        //     let govtChkBox = document.getElementById("govt");
+        //     govtChkBox.onclick = onGovtChkBoxClicked;
+        //     // other events handlers connected here
+        // }
+        function onGovtChkBoxClicked() {
+            let govt = document.getElementById("govt").checked;
+            // if (govt) {
+            let roadsideChkBox =
+                document.getElementById("roadside");
+            roadsideChkBox.checked = govt;
+            // }
+        }
+
+        window.onload = function () {
+            let sameAddrChkBox = document.getElementById("sameAddress");
+            sameAddrChkBox.onclick = onHideOrShowShippingDiv;
+
+        }
+        function onHideOrShowShippingDiv() {
+            let sameAddrChkBox = document.getElementById("sameAddress");
+            let shippingDiv = document.getElementById("shippingDiv");
+            if (sameAddrChkBox.checked) {
+                shippingDiv.style.display = "none";
+            }
+            else {
+                shippingDiv.style.display = "block";
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
